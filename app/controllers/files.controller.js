@@ -1,25 +1,27 @@
 const db =require("../models");
 const Files = db.files;
 const createFiles = (req, res) => { 
- console.log("create files");
-    // Files.create({
-    //   filename: req.body.filename,
-    //   fileCOntent: req.body.content
-    // })
-    //   .then((newfile) => {
-    //     res.send({
-    //       message: "File added successfully!",
-    //       data: { newfile },
-    //     });
-    //   })
-    //   .catch((err) => {
+   
+   var filename = "new name";
+   var filecontent = "new content";
+    Files.create({
+      filename: filename,
+      fileCOntent: filecontent
+    })
+      .then((newfile) => {
+        res.send({
+          message: "File added successfully!",
+          data: { newfile },
+        });
+      })
+      .catch((err) => {
     
-    //     res.status(500).send({ message: err.message });
-    //   });
+        res.status(500).send({ message: err.message });
+      });
   };
   const deleteFile = (req, res) => {
-    Study.destroy({ where: { id: req.params?.id } })
-      .then((study) => {
+    Files.destroy({ where: { id: req.params?.id } })
+      .then((files) => {
         res.send({ message: "File deleted successfully!" });
       })
       .catch((err) => {
