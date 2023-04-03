@@ -2,11 +2,11 @@ const db =require("../models");
 const Files = db.files;
 const createFiles = (req, res) => { 
    
-   var filename = "new name";
-   var filecontent = "new content";
+
     Files.create({
-      filename: filename,
-      fileCOntent: filecontent
+      filename: req.body.filename,
+      fileSize: req.body.fileSize,
+      fileContent: req.body.filecontent
     })
       .then((newfile) => {
         res.send({

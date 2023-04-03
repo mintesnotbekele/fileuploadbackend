@@ -9,8 +9,11 @@
       filename: {
         type: Sequelize.STRING,
       },
-      filecontent:{
-        type: Sequelize.STRING,
-      },
+      fileContent:{
+        type: Sequelize.TEXT('long'),
+      },  
+      fileSize :
+      { type: Sequelize.STRING,
+    },
     });
   };
